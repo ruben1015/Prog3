@@ -1,17 +1,31 @@
-class Grass {
+class Grass extends Base {
+
+  evolve() {
+    var field = random(this.chooseNearFieldsByIndex(0));
+    if (field) {
+      var x = field[0];
+      var y = field[1];
+      matrix[y][x] = 1;
+      grassArr.push(new Grass(x, y));
+    }
+  }
+
+}
+
+/*class Grass {
   constructor(x, y) {
     this.x = x;
     this.y = y;
     this.index = 1;
     this.directions = [
       [this.x - 1, this.y - 1],
-      [this.x    , this.y - 1],
+      [this.x, this.y - 1],
       [this.x + 1, this.y - 1],
-      [this.x + 1, this.y    ],
+      [this.x + 1, this.y],
       [this.x + 1, this.y + 1],
-      [this.x    , this.y + 1],
+      [this.x, this.y + 1],
       [this.x - 1, this.y + 1],
-      [this.x - 1, this.y    ],
+      [this.x - 1, this.y],
     ];
   }
   chooseNearFieldsByIndex(ch) {
@@ -34,4 +48,4 @@ class Grass {
       grassArr.push(new Grass(x, y));
     }
   }
-}
+}*/

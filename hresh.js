@@ -1,43 +1,8 @@
-class Hresh {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
+class Hresh extends Base {
+  constructor(x, y,index) {
+    super(x, y, index);
     this.index = 5;
-    this.directions = [
-      [this.x - 1, this.y - 1],
-      [this.x    , this.y - 1],
-      [this.x + 1, this.y - 1],
-      [this.x + 1, this.y    ],
-      [this.x + 1, this.y + 1],
-      [this.x    , this.y + 1],
-      [this.x - 1, this.y + 1],
-      [this.x - 1, this.y    ],
-    ];
     this.energy = 80;
-  }
-  getNewCoordinates() {
-    this.directions = [
-      [this.x - 1, this.y - 1],
-      [this.x    , this.y - 1],
-      [this.x + 1, this.y - 1],
-      [this.x + 1, this.y    ],
-      [this.x + 1, this.y + 1],
-      [this.x    , this.y + 1],
-      [this.x - 1, this.y + 1],
-      [this.x - 1, this.y    ],
-    ];
-  }
-  chooseNearFieldsByIndex(ch) {
-    this.getNewCoordinates();
-    var found = [];
-    for (var i = 0; i < this.directions.length; i++) {
-      var x = this.directions[i][0];
-      var y = this.directions[i][1];
-      if (matrix[y] && matrix[y][x] == ch) {
-        found.push(this.directions[i]);
-      }
-    }
-    return found;
   }
   move() {
     var field = random(this.chooseNearFieldsByIndex(0));
